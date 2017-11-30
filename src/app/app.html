@@ -1,0 +1,16 @@
+<ion-menu [content]="content">
+  <ion-toolbar>
+    <ion-title>ZeroToOne Schedule</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+      <ion-list-header>
+        Nagivate
+      </ion-list-header>
+      <button menuClose ion-item (click)="goHome()">Home</button>
+      <button menuClose ion-item (click)="goToTournaments()">Find a Tournament</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

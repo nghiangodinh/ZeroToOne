@@ -1,0 +1,8 @@
+{
+  "name": "ZeroToOneSchool",
+  "app_id": "3030d6eb",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

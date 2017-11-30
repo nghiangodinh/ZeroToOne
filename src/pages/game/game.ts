@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ZeroToOneProvider } from '../../providers/providers';
+import { TeamHomePage } from '../pages';
 
-/**
- * Generated class for the GamePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +11,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GamePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  game: any
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public api: ZeroToOneProvider) {
   }
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad GamePage');
+
+    this.game = this.navParams.data
   }
 
+  teamTapped(teamId) {
+    const tourData = this.api.getCurrentTourney()
+    const team = tourData.teams.find(t => t.id === teamId)
+    this.navCtrl.push(TeamHomePage, team)
+  }
 }
